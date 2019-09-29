@@ -1,0 +1,24 @@
+CXX = g++
+AR = ar
+CXXFLAGS = -O3
+LDLAGS = -O3
+LIB_NAME =  libfunctions.a
+SOURCES= file1.cpp file2.cpp
+OBJS=$(subst .cpp,.o,$(SOURCES))
+
+all: $(LIB_NAME)
+
+$(LIB_NAME): $(OBJS)
+	$(AR) rcs $@ $(OBJS)
+
+# Включити всі наявні залежності
+-include $(OBJS:.o=.d)
+
+%.o: %.cpp 
+	$(CXX) -c $(CXXFLAGS) $< -o $@ 
+	$(CXX) -MM -MP   -MT $@  -MF $*.d $(CXXFLAGS) $<
+# Рядок вище генерує інформацію про залежності
+
+.PHONY : clean
+clean:
+	rm -rf *.o *.d $(LIB_NAME)

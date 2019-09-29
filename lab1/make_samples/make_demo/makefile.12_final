@@ -1,0 +1,25 @@
+CXX = g++
+CXXFLAGS = -O3
+LDLAGS = -O3
+PRG_NAME =  hellomake
+BIN_DIR = bin
+OBJ_DIR = obj
+SOURCES = main_file.cpp file1.cpp file2.cpp
+OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
+
+all: $(BIN_DIR)/$(PRG_NAME)
+
+$(BIN_DIR)/$(PRG_NAME): $(OBJS)
+	$(CXX)  $(LDLAGS) $^ -o $@ 
+
+# Включити всі наявні залежності
+-include $(OBJS:.o=.d)
+
+$(OBJ_DIR)/%.o: %.cpp
+	$(CXX) -c $(CXXFLAGS) $<  -o $@ 
+	$(CXX) -MM -MP   -MT $@  -MF $(OBJ_DIR)/$*.d $(CXXFLAGS) $<
+# Рядок вище генерує інформацію про залежності
+
+.PHONY : clean
+clean:
+	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d $(BIN_DIR)/$(PRG_NAME)

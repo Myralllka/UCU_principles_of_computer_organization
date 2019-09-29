@@ -1,0 +1,22 @@
+CXX = g++
+CXXFLAGS = -O3
+LDLAGS = -O3
+PRG_NAME =  hellomake
+HEADERS = file1.h file2.h
+SOURCES = $(wildcard *.cpp)
+OBJS = $(subst .cpp,.o,$(SOURCES))
+
+all: $(PRG_NAME)
+
+$(PRG_NAME): $(OBJS)
+	$(CXX)  $(LDLAGS) $^ -o $@ 
+
+%.o: %.c $(HEADERS)
+	$(CXX) -c $(CXXFLAGS) $< 
+
+.PHONY : clean
+clean:
+	rm -rf *.o $(PRG_NAME)
+
+
+
