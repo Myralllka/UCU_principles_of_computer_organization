@@ -1,4 +1,1 @@
-/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/myralllka/Documents/PoCO/lab1
--- Configuring done
--- Generating done
--- Build files have been written to: /home/myralllka/Documents/PoCO/lab1/cmake-build-debug
+CMakeLists.txt not found in /home/myralllka/Documents/PoCO/lab1 Select CMakeLists.txt file...

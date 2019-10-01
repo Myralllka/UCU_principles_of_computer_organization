@@ -1,0 +1,4 @@
+/home/myralllka/Documents/PoCO/lab1/result/library/build/CMakeFiles/rebuild_cache.dir
+/home/myralllka/Documents/PoCO/lab1/result/library/build/CMakeFiles/edit_cache.dir
+/home/myralllka/Documents/PoCO/lab1/result/library/build/CMakeFiles/bz.dir
+/home/myralllka/Documents/PoCO/lab1/result/library/build/CMakeFiles/bz-shared.dir
