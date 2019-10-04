@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/bzip2.dir/bzip2.c.o  -o ../bin/bzip2 -Wl,-rpath,/home/myralllka/Documents/PoCO/lab1/result/library/bin /home/myralllka/Documents/PoCO/lab1/result/library/bin/libbz.so 

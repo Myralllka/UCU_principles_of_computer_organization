@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../bin/libbz.a  CMakeFiles/bz.dir/blocksort.c.o CMakeFiles/bz.dir/bzlib.c.o CMakeFiles/bz.dir/compress.c.o CMakeFiles/bz.dir/crctable.c.o CMakeFiles/bz.dir/decompress.c.o CMakeFiles/bz.dir/huffman.c.o CMakeFiles/bz.dir/randtable.c.o
-/usr/bin/ranlib ../bin/libbz.a

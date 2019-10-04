@@ -1,6 +1,6 @@
 C = gcc
-CFLAGS_SO = -c -fPIC
-CFLAGS = -c
+CFLAGS_SO = -c -O3 -fPIC
+CFLAGS = -c -O3
 OBJ_DIR = obj
 BIN_DIR = bin
 NAME = libbzip2.a
@@ -27,7 +27,3 @@ $(OBJ_DIR)/%.o: %.c
 .PHONY : clean
 clean:
 	rm -rf bin/ obj/
-
-.PHONY : debug
-debug:
-  ${CFLAGS}

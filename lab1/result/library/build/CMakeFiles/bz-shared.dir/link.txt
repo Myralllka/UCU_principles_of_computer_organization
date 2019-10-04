@@ -1,1 +1,0 @@
-/usr/bin/cc -fPIC   -shared -Wl,-soname,libbz.so -o ../bin/libbz.so CMakeFiles/bz-shared.dir/blocksort.c.o CMakeFiles/bz-shared.dir/bzlib.c.o CMakeFiles/bz-shared.dir/compress.c.o CMakeFiles/bz-shared.dir/crctable.c.o CMakeFiles/bz-shared.dir/decompress.c.o CMakeFiles/bz-shared.dir/huffman.c.o CMakeFiles/bz-shared.dir/randtable.c.o 
