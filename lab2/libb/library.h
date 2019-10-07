@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #ifndef LIBB_LIBRARY_H
 #define LIBB_LIBRARY_H
 

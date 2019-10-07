@@ -6,7 +6,7 @@ int main(void){
     my_str_t x;
     my_str_create(&x, 7);
 //    my_str_from_cstr(&x, "asdasd", 7);
-    my_str_get_cstr(&x);
+    printf("%s", my_str_get_cstr(&x));
 }
 
 int my_str_create(my_str_t* str, size_t buf_size) {
