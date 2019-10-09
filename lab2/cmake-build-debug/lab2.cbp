@@ -79,6 +79,9 @@
 		<Unit filename="/home/myralllka/Documents/PoCO/lab2/main.c">
 			<Option target="lab2"/>
 		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab2/main.h">
+			<Option target="lab2"/>
+		</Unit>
 		<Unit filename="/home/myralllka/Documents/PoCO/lab2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
