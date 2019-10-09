@@ -4,19 +4,22 @@
 #include "libb/library.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(void){
     my_str_t x;
     my_str_create(&x, 7);
-    x.data = 'asdad';
-//    my_str_from_cstr(&x, "asdasd", 7);
-    printf("%s", my_str_get_cstr(&x));
+    char* cst = "assad";
+    my_str_from_cstr(&x, cst, 0);
+//    puts("asdasd");
+//    printf("%s", my_str_get_cstr(&x));
+    puts(my_str_get_cstr(&x));
 }
 
 int my_str_create(my_str_t* str, size_t buf_size) {
     str->capacity_m = buf_size + 1;
     str->size_m = 0;
-    str->data = (char*)malloc(str->capacity_m);
+    str->data = (char*)calloc(str->capacity_m, sizeof(char));
     if (str->data == NULL){
         return -1;
     }
@@ -28,7 +31,27 @@ void my_str_free(my_str_t* str){
 }
 
 int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size){
-
+    // make my_str from cstring.
+    // if buf_size == 0 then buf_size will be equal to real size
+    // return -1 if buf size is less then real size then it is a mistake
+    // return -2 if it is impossible to give enough memory
+    //return 0 if everything is Ok
+    size_t real_size = 0;
+    while (*(cstr + real_size) != '\0'){
+        real_size += 1;
+    }
+    if (buf_size == 0){
+        buf_size = real_size + 1;
+    } else if (buf_size < real_size){
+        return -1;
+    }
+    int checker = my_str_reserve(str, real_size*2+1);
+    if (checker){
+        return -2;
+    }
+    memcpy(str->data, cstr, real_size);
+    str->size_m = real_size;
+    return 0;
 }
 
 size_t my_str_size(const my_str_t* str){
@@ -73,9 +96,7 @@ const char* my_str_get_cstr(my_str_t* str){
     return str->data;
 }
 
-int my_str_pushback(my_str_t* str, char c){
-
-}
+int my_str_pushback(my_str_t* str, char c){}
 
 int my_str_popback(my_str_t* str){}
 
@@ -98,7 +119,25 @@ int my_str_substr(const my_str_t* from, my_str_t* to, size_t beg, size_t end){}
 int my_str_substr_cstr(const my_str_t* from, char* to, size_t beg, size_t end){}
 
 int my_str_reserve(my_str_t* str, size_t buf_size){
-
+    // increase buff size of my_str if new_size is bigger then previous one
+    // if new_size is equal or less - nothing.
+    // for increasing size - make new buffer and copy my_str into it and make it empty.
+    // return negative numbers if something get wrong, 0 otherwise.
+    if (str == NULL) {
+        return -1;
+    }
+    if (str->capacity_m > buf_size) {
+        return 0;
+    }
+    char* new_str = (char*)calloc(buf_size, sizeof(char));
+    if (new_str == NULL) {
+        return -2;
+    }
+    memmove(new_str, str->data, str->size_m);
+    free(str->data);
+    str->data = new_str;
+    str->capacity_m = buf_size;
+    return 0;
 }
 
 int my_str_shrink_to_fit(my_str_t* str){}
