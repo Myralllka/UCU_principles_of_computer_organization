@@ -6,25 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/myralllka/Documents/PoCO/lab2/libb/library.h
+/home/myralllka/Documents/PoCO/lab2/libb/include/library.h
 stdlib.h
 -
 stdio.h
 -
 
+/home/myralllka/Documents/PoCO/lab2/libb/src/library.c
+../include/library.h
+/home/myralllka/Documents/PoCO/lab2/libb/include/library.h
+stdio.h
+-
+stdlib.h
+-
+
 /home/myralllka/Documents/PoCO/lab2/main.c
 stdio.h
 -
-main.h
-/home/myralllka/Documents/PoCO/lab2/main.h
-libb/library.h
-/home/myralllka/Documents/PoCO/lab2/libb/library.h
+libb/src/library.c
+/home/myralllka/Documents/PoCO/lab2/libb/src/library.c
 stdio.h
 -
 stdlib.h
 -
 string.h
 -
-
-/home/myralllka/Documents/PoCO/lab2/main.h
 

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named libb
+
+# Build rule for target.
+libb: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libb
+.PHONY : libb
+
+# fast build rule for target.
+libb/fast:
+	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/build
+.PHONY : libb/fast
+
+#=============================================================================
 # Target rules for targets named lab2
 
 # Build rule for target.
@@ -122,6 +135,33 @@ lab2: cmake_check_build_system
 lab2/fast:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
 .PHONY : lab2/fast
+
+libb/src/library.o: libb/src/library.c.o
+
+.PHONY : libb/src/library.o
+
+# target to build an object file
+libb/src/library.c.o:
+	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/libb/src/library.c.o
+.PHONY : libb/src/library.c.o
+
+libb/src/library.i: libb/src/library.c.i
+
+.PHONY : libb/src/library.i
+
+# target to preprocess a source file
+libb/src/library.c.i:
+	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/libb/src/library.c.i
+.PHONY : libb/src/library.c.i
+
+libb/src/library.s: libb/src/library.c.s
+
+.PHONY : libb/src/library.s
+
+# target to generate assembly for a file
+libb/src/library.c.s:
+	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/libb/src/library.c.s
+.PHONY : libb/src/library.c.s
 
 main.o: main.c.o
 
@@ -157,8 +197,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... lab2"
 	@echo "... edit_cache"
+	@echo "... libb"
+	@echo "... lab2"
+	@echo "... libb/src/library.o"
+	@echo "... libb/src/library.i"
+	@echo "... libb/src/library.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
