@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#ifndef LIBB_LIBRARY_H
-#define LIBB_LIBRARY_H
+
+#ifndef CSTRING_LIBRARY_H
+#define CSTRING_LIBRARY_H
 
 
 typedef struct {
@@ -73,8 +74,16 @@ int my_str_read(my_str_t *str);
 
 int my_str_write_file(const my_str_t *str, FILE *file);
 
-int my_str_write(const my_str_t *str, FILE *file);
+int my_str_write(const my_str_t *str);
 
 int my_str_read_file_delim(my_str_t *str, FILE *file, char delimiter);
 
-#endif //LIBB_LIBRARY_H
+
+/*******************HELPER_FUNCTIONS**********************************/
+int my_str_realloc(my_str_t *str, size_t buffer);
+
+void char_arr_copy(const char *arr, size_t to_index, char *arr_copy);
+
+size_t char_arr_len(const char *s);
+/*********************************************************************/
+#endif //CSTRING_LIBRARY_H

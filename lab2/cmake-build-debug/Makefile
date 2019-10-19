@@ -111,57 +111,57 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named libb
+# Target rules for targets named c_string
 
 # Build rule for target.
-libb: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 libb
-.PHONY : libb
+c_string: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 c_string
+.PHONY : c_string
 
 # fast build rule for target.
-libb/fast:
-	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/build
-.PHONY : libb/fast
+c_string/fast:
+	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/build
+.PHONY : c_string/fast
 
 #=============================================================================
-# Target rules for targets named lab2
+# Target rules for targets named main
 
 # Build rule for target.
-lab2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lab2
-.PHONY : lab2
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-lab2/fast:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
-.PHONY : lab2/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-libb/src/library.o: libb/src/library.c.o
+lib/src/c_string.o: lib/src/c_string.c.o
 
-.PHONY : libb/src/library.o
+.PHONY : lib/src/c_string.o
 
 # target to build an object file
-libb/src/library.c.o:
-	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/libb/src/library.c.o
-.PHONY : libb/src/library.c.o
+lib/src/c_string.c.o:
+	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/lib/src/c_string.c.o
+.PHONY : lib/src/c_string.c.o
 
-libb/src/library.i: libb/src/library.c.i
+lib/src/c_string.i: lib/src/c_string.c.i
 
-.PHONY : libb/src/library.i
+.PHONY : lib/src/c_string.i
 
 # target to preprocess a source file
-libb/src/library.c.i:
-	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/libb/src/library.c.i
-.PHONY : libb/src/library.c.i
+lib/src/c_string.c.i:
+	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/lib/src/c_string.c.i
+.PHONY : lib/src/c_string.c.i
 
-libb/src/library.s: libb/src/library.c.s
+lib/src/c_string.s: lib/src/c_string.c.s
 
-.PHONY : libb/src/library.s
+.PHONY : lib/src/c_string.s
 
 # target to generate assembly for a file
-libb/src/library.c.s:
-	$(MAKE) -f CMakeFiles/libb.dir/build.make CMakeFiles/libb.dir/libb/src/library.c.s
-.PHONY : libb/src/library.c.s
+lib/src/c_string.c.s:
+	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/lib/src/c_string.c.s
+.PHONY : lib/src/c_string.c.s
 
 main.o: main.c.o
 
@@ -169,7 +169,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.c.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -178,7 +178,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -187,8 +187,35 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.s
 .PHONY : main.c.s
+
+tests/test.o: tests/test.c.o
+
+.PHONY : tests/test.o
+
+# target to build an object file
+tests/test.c.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/test.c.o
+.PHONY : tests/test.c.o
+
+tests/test.i: tests/test.c.i
+
+.PHONY : tests/test.i
+
+# target to preprocess a source file
+tests/test.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/test.c.i
+.PHONY : tests/test.c.i
+
+tests/test.s: tests/test.c.s
+
+.PHONY : tests/test.s
+
+# target to generate assembly for a file
+tests/test.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/test.c.s
+.PHONY : tests/test.c.s
 
 # Help Target
 help:
@@ -197,15 +224,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... c_string"
 	@echo "... edit_cache"
-	@echo "... libb"
-	@echo "... lab2"
-	@echo "... libb/src/library.o"
-	@echo "... libb/src/library.i"
-	@echo "... libb/src/library.s"
+	@echo "... main"
+	@echo "... lib/src/c_string.o"
+	@echo "... lib/src/c_string.i"
+	@echo "... lib/src/c_string.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... tests/test.o"
+	@echo "... tests/test.i"
+	@echo "... tests/test.s"
 .PHONY : help
 
 

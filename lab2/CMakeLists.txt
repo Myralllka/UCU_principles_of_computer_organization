@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 project(lab2 C)
 
-SET(LIB_NAME libb)
-SET(EXEC_NAME lab2)
+SET(LIB_NAME c_string)
+SET(EXEC_NAME main)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  ../bin/lib)
 
@@ -30,9 +30,11 @@ endif()
 
 
 #add_library(${LIB_NAME} STATIC src/my_str.c)
-add_library(${LIB_NAME} SHARED libb/src/library.c libb/include/library.h)
+add_library(${LIB_NAME} SHARED lib/src/c_string.c lib/include/c_string.h)
 #target_link_directories(${LIB_NAME} PUBLIC include)
 
-#add_executable(test tests/tests.c tests/test.h)
-add_executable(${EXEC_NAME} main.c)
+#add_executable(test tests/test.c tests/test.h)
+#target_link_libraries(test ${LIB_NAME})
+
+add_executable(${EXEC_NAME} main.c tests/test.c tests/test.h)
 target_link_libraries(${EXEC_NAME} ${LIB_NAME})

@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/lab2.dir/main.c.o  -o ../bin/lab2 -Wl,-rpath,/home/myralllka/Documents/PoCO/lab2/bin/lib ../bin/lib/liblibb.so 
+/usr/bin/cc -g   CMakeFiles/lab2.dir/main.c.o CMakeFiles/lab2.dir/tests/tests.c.o  -o ../bin/lab2 -Wl,-rpath,/home/myralllka/Documents/PoCO/lab2/bin/lib ../bin/lib/liblibb.so 

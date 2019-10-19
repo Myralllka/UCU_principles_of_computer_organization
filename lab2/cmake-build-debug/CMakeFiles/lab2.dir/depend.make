@@ -4,4 +4,11 @@
 CMakeFiles/lab2.dir/main.c.o: ../libb/include/library.h
 CMakeFiles/lab2.dir/main.c.o: ../libb/src/library.c
 CMakeFiles/lab2.dir/main.c.o: ../main.c
+CMakeFiles/lab2.dir/main.c.o: ../tests/test.h
+CMakeFiles/lab2.dir/main.c.o: ../tests/tests.c
+
+CMakeFiles/lab2.dir/tests/tests.c.o: ../libb/include/library.h
+CMakeFiles/lab2.dir/tests/tests.c.o: ../libb/src/library.c
+CMakeFiles/lab2.dir/tests/tests.c.o: ../tests/test.h
+CMakeFiles/lab2.dir/tests/tests.c.o: ../tests/tests.c
 
