@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named c_string
+# Target rules for targets named comp_eff
 
 # Build rule for target.
-c_string: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 c_string
-.PHONY : c_string
+comp_eff: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 comp_eff
+.PHONY : comp_eff
 
 # fast build rule for target.
-c_string/fast:
-	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/build
-.PHONY : c_string/fast
+comp_eff/fast:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/build
+.PHONY : comp_eff/fast
 
 #=============================================================================
 # Target rules for targets named main
@@ -136,12 +136,93 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+#=============================================================================
+# Target rules for targets named c_string
+
+# Build rule for target.
+c_string: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 c_string
+.PHONY : c_string
+
+# fast build rule for target.
+c_string/fast:
+	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/build
+.PHONY : c_string/fast
+
+#=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+compare_efficiency/cmp.o: compare_efficiency/cmp.cpp.o
+
+.PHONY : compare_efficiency/cmp.o
+
+# target to build an object file
+compare_efficiency/cmp.cpp.o:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/compare_efficiency/cmp.cpp.o
+.PHONY : compare_efficiency/cmp.cpp.o
+
+compare_efficiency/cmp.i: compare_efficiency/cmp.cpp.i
+
+.PHONY : compare_efficiency/cmp.i
+
+# target to preprocess a source file
+compare_efficiency/cmp.cpp.i:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/compare_efficiency/cmp.cpp.i
+.PHONY : compare_efficiency/cmp.cpp.i
+
+compare_efficiency/cmp.s: compare_efficiency/cmp.cpp.s
+
+.PHONY : compare_efficiency/cmp.s
+
+# target to generate assembly for a file
+compare_efficiency/cmp.cpp.s:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/compare_efficiency/cmp.cpp.s
+.PHONY : compare_efficiency/cmp.cpp.s
+
+cpp_wrapper/CString.o: cpp_wrapper/CString.cpp.o
+
+.PHONY : cpp_wrapper/CString.o
+
+# target to build an object file
+cpp_wrapper/CString.cpp.o:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/cpp_wrapper/CString.cpp.o
+.PHONY : cpp_wrapper/CString.cpp.o
+
+cpp_wrapper/CString.i: cpp_wrapper/CString.cpp.i
+
+.PHONY : cpp_wrapper/CString.i
+
+# target to preprocess a source file
+cpp_wrapper/CString.cpp.i:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/cpp_wrapper/CString.cpp.i
+.PHONY : cpp_wrapper/CString.cpp.i
+
+cpp_wrapper/CString.s: cpp_wrapper/CString.cpp.s
+
+.PHONY : cpp_wrapper/CString.s
+
+# target to generate assembly for a file
+cpp_wrapper/CString.cpp.s:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/cpp_wrapper/CString.cpp.s
+.PHONY : cpp_wrapper/CString.cpp.s
+
 lib/src/c_string.o: lib/src/c_string.c.o
 
 .PHONY : lib/src/c_string.o
 
 # target to build an object file
 lib/src/c_string.c.o:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/lib/src/c_string.c.o
 	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/lib/src/c_string.c.o
 .PHONY : lib/src/c_string.c.o
 
@@ -151,6 +232,7 @@ lib/src/c_string.i: lib/src/c_string.c.i
 
 # target to preprocess a source file
 lib/src/c_string.c.i:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/lib/src/c_string.c.i
 	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/lib/src/c_string.c.i
 .PHONY : lib/src/c_string.c.i
 
@@ -160,6 +242,7 @@ lib/src/c_string.s: lib/src/c_string.c.s
 
 # target to generate assembly for a file
 lib/src/c_string.c.s:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/lib/src/c_string.c.s
 	$(MAKE) -f CMakeFiles/c_string.dir/build.make CMakeFiles/c_string.dir/lib/src/c_string.c.s
 .PHONY : lib/src/c_string.c.s
 
@@ -196,7 +279,7 @@ tests/test.o: tests/test.c.o
 
 # target to build an object file
 tests/test.c.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/test.c.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.c.o
 .PHONY : tests/test.c.o
 
 tests/test.i: tests/test.c.i
@@ -205,7 +288,7 @@ tests/test.i: tests/test.c.i
 
 # target to preprocess a source file
 tests/test.c.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/test.c.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.c.i
 .PHONY : tests/test.c.i
 
 tests/test.s: tests/test.c.s
@@ -214,7 +297,7 @@ tests/test.s: tests/test.c.s
 
 # target to generate assembly for a file
 tests/test.c.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/test.c.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.c.s
 .PHONY : tests/test.c.s
 
 # Help Target
@@ -224,9 +307,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... c_string"
+	@echo "... comp_eff"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... c_string"
+	@echo "... test"
+	@echo "... compare_efficiency/cmp.o"
+	@echo "... compare_efficiency/cmp.i"
+	@echo "... compare_efficiency/cmp.s"
+	@echo "... cpp_wrapper/CString.o"
+	@echo "... cpp_wrapper/CString.i"
+	@echo "... cpp_wrapper/CString.s"
 	@echo "... lib/src/c_string.o"
 	@echo "... lib/src/c_string.i"
 	@echo "... lib/src/c_string.s"

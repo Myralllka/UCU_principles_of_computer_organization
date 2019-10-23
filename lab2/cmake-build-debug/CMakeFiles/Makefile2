@@ -53,14 +53,18 @@ CMAKE_BINARY_DIR = /home/myralllka/Documents/PoCO/lab2/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/c_string.dir/all
+all: CMakeFiles/comp_eff.dir/all
 all: CMakeFiles/main.dir/all
+all: CMakeFiles/c_string.dir/all
+all: CMakeFiles/test.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
-clean: CMakeFiles/c_string.dir/clean
+clean: CMakeFiles/comp_eff.dir/clean
 clean: CMakeFiles/main.dir/clean
+clean: CMakeFiles/c_string.dir/clean
+clean: CMakeFiles/test.dir/clean
 
 .PHONY : clean
 
@@ -68,6 +72,60 @@ clean: CMakeFiles/main.dir/clean
 preinstall:
 
 .PHONY : preinstall
+
+#=============================================================================
+# Target rules for target CMakeFiles/comp_eff.dir
+
+# All Build rule for target.
+CMakeFiles/comp_eff.dir/all:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/depend
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles --progress-num=3,4,5,6 "Built target comp_eff"
+.PHONY : CMakeFiles/comp_eff.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/comp_eff.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/comp_eff.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/comp_eff.dir/rule
+
+# Convenience name for target.
+comp_eff: CMakeFiles/comp_eff.dir/rule
+
+.PHONY : comp_eff
+
+# clean rule for target.
+CMakeFiles/comp_eff.dir/clean:
+	$(MAKE) -f CMakeFiles/comp_eff.dir/build.make CMakeFiles/comp_eff.dir/clean
+.PHONY : CMakeFiles/comp_eff.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/main.dir
+
+# All Build rule for target.
+CMakeFiles/main.dir/all: CMakeFiles/c_string.dir/all
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/main.dir/rule
+
+# Convenience name for target.
+main: CMakeFiles/main.dir/rule
+
+.PHONY : main
+
+# clean rule for target.
+CMakeFiles/main.dir/clean:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/c_string.dir
@@ -97,31 +155,31 @@ CMakeFiles/c_string.dir/clean:
 .PHONY : CMakeFiles/c_string.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/main.dir
+# Target rules for target CMakeFiles/test.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all: CMakeFiles/c_string.dir/all
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles --progress-num=3,4,5 "Built target main"
-.PHONY : CMakeFiles/main.dir/all
+CMakeFiles/test.dir/all: CMakeFiles/c_string.dir/all
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target test"
+.PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+CMakeFiles/test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/main.dir/rule
+.PHONY : CMakeFiles/test.dir/rule
 
 # Convenience name for target.
-main: CMakeFiles/main.dir/rule
+test: CMakeFiles/test.dir/rule
 
-.PHONY : main
+.PHONY : test
 
 # clean rule for target.
-CMakeFiles/main.dir/clean:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
-.PHONY : CMakeFiles/main.dir/clean
+CMakeFiles/test.dir/clean:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
+.PHONY : CMakeFiles/test.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

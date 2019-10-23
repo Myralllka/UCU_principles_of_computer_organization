@@ -7,9 +7,9 @@
 
 
 typedef struct {
-    size_t capacity_m; // Розмір блока
-    size_t size_m;     // Фактичний розмір стрічки
-    char *data;       // Вказівник на блок пам'яті
+    size_t capacity_m; // Block size
+    size_t size_m;     // Actual size of the string
+    char *data;       // Pointer on data block
 } my_str_t;
 
 int my_str_create(my_str_t *str, size_t buf_size);
@@ -85,5 +85,7 @@ int my_str_realloc(my_str_t *str, size_t buffer);
 void char_arr_copy(const char *arr, size_t to_index, char *arr_copy);
 
 size_t char_arr_len(const char *s);
+
+static int check_borders(const my_str_t *str, size_t beg, size_t *end);
 /*********************************************************************/
 #endif //CSTRING_LIBRARY_H
