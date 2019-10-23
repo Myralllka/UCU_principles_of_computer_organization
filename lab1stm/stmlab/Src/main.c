@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -88,6 +89,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -96,26 +98,43 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   /* USER CODE BEGIN WHILE */
-    int pressed = 15;
-    while (1)
-    {
-     if ( HAL_GPIO_ReadPin(UButton_GPIO_Port, UButton_Pin) )
-     {
-      ++pressed;
-      HAL_Delay(50); //<========
-      while( HAL_GPIO_ReadPin(UButton_GPIO_Port, UButton_Pin) )
-      {}
-      HAL_Delay(50); //<========
-     }
-    GPIOE->ODR &= ~(0xFF << 8);
-	GPIOE->ODR |= (pressed & 0xFF) << 8;
+//    int pressed = 15;
+//    while (1)
+//    {
+//     if ( HAL_GPIO_ReadPin(UButton_GPIO_Port, UButton_Pin) )
+//     {
+//      ++pressed;
+//      HAL_Delay(50); //<========
+//      while( HAL_GPIO_ReadPin(UButton_GPIO_Port, UButton_Pin) )
+//      {}
+//      HAL_Delay(50); //<========
+//     }
+//    GPIOE->ODR &= ~(0xFF << 8);
+//	GPIOE->ODR |= (pressed & 0xFF) << 8;
 
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+  uint32_t i, d;
+  d = 1;
+  while (1)
+    {
+     for(i = 0; i <= 65535; i++) {
+    	 TIM4->CCR2 = 32000;
+    	 HAL_Delay(d);
+     }
+     for(i = 65535; i > 0; i--) {
+         	 TIM4->CCR2 = 32000;
+		 HAL_Delay(d);
+          }
     }
+
+//    }
   /* USER CODE END 3 */
 }
 
@@ -127,6 +146,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
@@ -150,6 +170,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1;
+  PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }
