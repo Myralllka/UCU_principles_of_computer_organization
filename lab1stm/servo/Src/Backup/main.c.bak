@@ -70,6 +70,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
    ++pressed;
   }else
   {
+  ++pressed;
    button_is_pressed = 1;
   }
  }
@@ -121,15 +122,17 @@ int main(void)
   while (1)
     {
      // Замість бавитися в копіювання бітів, спочатку всі очищаємо.
-     GPIOE->ODR &= ~(0xFF << 8);
+     GPIOE->ODR &= ~(0xF << 8);
      // А потім встановлюємо лише потрібні.
      __disable_irq();  // Перш, ніж звертатися до змінної, що може бути
              // зміненою в обробнику переривань,
              // забороняємо їх!
-     GPIOE->ODR |= (pressed & 0xFF) << 8;
+     if (button_is_pressed) {
+    	 TIM1->CCR3 = 65;
+     }else TIM1->CCR3 =165;
+     GPIOE->ODR |= (pressed & 0xF) << 8;
      __enable_irq(); // Завершивши звертання -- знову дозволяємо.
-
-//     HAL_Delay(50);
+     HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

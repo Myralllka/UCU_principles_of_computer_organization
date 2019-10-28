@@ -127,12 +127,19 @@ int main(void)
      __disable_irq();  // Перш, ніж звертатися до змінної, що може бути
              // зміненою в обробнику переривань,
              // забороняємо їх!
-     if (button_is_pressed) {
-    	 TIM1->CCR3 = 65;
-     }else TIM1->CCR3 =165;
+//     if (button_is_pressed) {
+//    	 TIM1->CCR3 = 10;
+//     }else TIM1->CCR3 =170;
+     TIM1->CCR3 = 120;
+//     HAL_Delay(1000);
+//     for (int i = 25; i < 170; i++) {
+//    	 TIM1->CCR3 = i;
+//    	 for (int k = 0; k < 100000; k++){}
+//    	 HAL_Delay(1);
+//     }
      GPIOE->ODR |= (pressed & 0xF) << 8;
      __enable_irq(); // Завершивши звертання -- знову дозволяємо.
-     HAL_Delay(1000);
+//     HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

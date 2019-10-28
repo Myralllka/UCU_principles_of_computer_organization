@@ -52,7 +52,28 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+volatile int pressed = 0; // Ініціалізується нулем по замовчуванню, але так гарніше
+volatile int button_is_pressed = 0;
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+ if( GPIO_Pin == UButton_Pin)
+ {
+  static uint32_t last_change_tick;
+  if( HAL_GetTick() - last_change_tick < 50 )
+  {
+   return;
+  }
+  last_change_tick = HAL_GetTick();
+  if(button_is_pressed)
+  {
+   button_is_pressed = 0;
+   ++pressed;
+  }else
+  {
+   button_is_pressed = 1;
+  }
+ }
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -89,52 +110,36 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM1_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
+  uint16_t current, previous;
+  current = 0;
+  previous = 3;
+  uint16_t *arr[] = {&TIM4->CCR1, &TIM4->CCR2, &TIM4->CCR3, &TIM4->CCR4};
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  /* USER CODE BEGIN WHILE */
-//    int pressed = 15;
-//    while (1)
-//    {
-//     if ( HAL_GPIO_ReadPin(UButton_GPIO_Port, UButton_Pin) )
-//     {
-//      ++pressed;
-//      HAL_Delay(50); //<========
-//      while( HAL_GPIO_ReadPin(UButton_GPIO_Port, UButton_Pin) )
-//      {}
-//      HAL_Delay(50); //<========
-//     }
-//    GPIOE->ODR &= ~(0xFF << 8);
-//	GPIOE->ODR |= (pressed & 0xFF) << 8;
-
-
+  while (1)
+  {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
-  uint32_t i, d;
-  d = 1;
-  while (1)
-    {
-     for(i = 0; i <= 65535; i++) {
-    	 TIM4->CCR2 = 32000;
-    	 HAL_Delay(d);
-     }
-     for(i = 65535; i > 0; i--) {
-         	 TIM4->CCR2 = 32000;
-		 HAL_Delay(d);
-          }
-    }
+	  *arr[previous] = 0;
+	  *arr[current] = 32768;
+	  HAL_Delay(1);
+	  previous = (previous + 1)%4;
+	  current = (current + 1)%4;
+	 __disable_irq();
 
-//    }
+	 __enable_irq();
+
+  }
   /* USER CODE END 3 */
 }
 
@@ -146,7 +151,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
@@ -170,12 +174,6 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1;
-  PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

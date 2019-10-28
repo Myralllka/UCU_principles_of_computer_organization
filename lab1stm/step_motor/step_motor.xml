@@ -9,8 +9,8 @@
 <!ATTLIST board id CDATA #REQUIRED>
 ]>
 <targetDefinitions>
-  <board id="stmlab">
-    <name>stmlab</name>
+  <board id="step_motor">
+    <name>step_motor</name>
     <dbgIF>SWD</dbgIF>
     <dbgDEV>ST-Link</dbgDEV>
     <mcuId>stm32f303vctx</mcuId>
