@@ -130,7 +130,10 @@ int main(void)
 //     if (button_is_pressed) {
 //    	 TIM1->CCR3 = 10;
 //     }else TIM1->CCR3 =170;
-     TIM1->CCR3 = 120;
+     TIM1->CCR3 = 100;
+//     HAL_Delay(10);
+//     TIM1->CCR3 = 170;
+//     HAL_Delay(10);
 //     HAL_Delay(1000);
 //     for (int i = 25; i < 170; i++) {
 //    	 TIM1->CCR3 = i;

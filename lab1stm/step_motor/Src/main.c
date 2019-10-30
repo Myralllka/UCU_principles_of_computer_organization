@@ -52,7 +52,6 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-volatile int pressed = 0; // Ініціалізується нулем по замовчуванню, але так гарніше
 volatile int button_is_pressed = 0;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
@@ -67,7 +66,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if(button_is_pressed)
   {
    button_is_pressed = 0;
-   ++pressed;
   }else
   {
    button_is_pressed = 1;
@@ -116,10 +114,10 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
-  uint16_t current, previous;
-  current = 0;
-  previous = 3;
-  uint16_t *arr[] = {&TIM4->CCR1, &TIM4->CCR2, &TIM4->CCR3, &TIM4->CCR4};
+//  uint16_t current, previous;
+//  current = 0;
+//  previous = 3;
+//  uint16_t *arr[] = {&TIM4->CCR1, &TIM4->CCR2, &TIM4->CCR3, &TIM4->CCR4};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -130,14 +128,18 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  *arr[previous] = 0;
-	  *arr[current] = 32768;
-	  HAL_Delay(1);
-	  previous = (previous + 1)%4;
-	  current = (current + 1)%4;
-	 __disable_irq();
+	  __disable_irq();
+	  __enable_irq();
+	  if (button_is_pressed) {
+		  TIM4->CCR1 = 8192;
 
-	 __enable_irq();
+//	  *arr[previous] = 0;
+//	  *arr[current] = 32768;
+//	  HAL_Delay(1);
+//	  previous = (previous + 1)%4;
+//	  current = (current + 1)%4;
+	  }
+
 
   }
   /* USER CODE END 3 */
