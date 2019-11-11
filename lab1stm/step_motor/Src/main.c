@@ -108,16 +108,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM4_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
-//  uint16_t current, previous;
-//  current = 0;
-//  previous = 3;
-//  uint16_t *arr[] = {&TIM4->CCR1, &TIM4->CCR2, &TIM4->CCR3, &TIM4->CCR4};
+//  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
+//  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+//  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_Base_Start_IT(&htim1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,19 +130,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  __disable_irq();
-	  __enable_irq();
-	  if (button_is_pressed) {
-		  TIM4->CCR1 = 8192;
 
-//	  *arr[previous] = 0;
-//	  *arr[current] = 32768;
-//	  HAL_Delay(1);
-//	  previous = (previous + 1)%4;
-//	  current = (current + 1)%4;
-	  }
-
-
+  }
+  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	 HAL_GPIO_TogglePin(TIM_CHANNEL_1, TIM_CHANNEL_1);
   }
   /* USER CODE END 3 */
 }
@@ -153,6 +146,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
@@ -176,6 +170,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1;
+  PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

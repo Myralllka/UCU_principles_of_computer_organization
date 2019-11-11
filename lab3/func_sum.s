@@ -1,10 +1,10 @@
 format elf64
-SECTION '.text'
+
+SECTION '.text' executable
 
 public func
 
 func:
-  ; arguments: during the calling convension are in stack
   push rbp
   mov rbp, rsp
   ; arguments are in rdi xmm1, xmm0 (from right to left)
@@ -37,10 +37,7 @@ startlp:
   mov dword [rbp-0x4], eax      ; save i
   jmp startlp                   ; jump to start of the loop
 endlp:
-  movss xmm0, dword [rbp-0x8]    ; res = result
-  ; return the state of stak and return the func, result in xmm0
+  ; return the state of stack and return the func, result in xmm0
+  movss xmm0, dword [rbp-0x8]   ; res = result
   pop rbp
   ret
-
-
-  
