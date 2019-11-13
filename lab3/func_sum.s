@@ -7,37 +7,16 @@ public func
 func:
   push rbp
   mov rbp, rsp
-  ; arguments are in rdi xmm1, xmm0 (from right to left)
-  ; rbp-0x4(4)    i
-  ; rbp-0x8(8)    result (to xmm0)
-  ; rbp-0xc(12)   current
-  ; rbp-0x14(20)  denum (2d argument, now in xmm1)
-  ; rbp-0x18(24)  start (1st argument, now in xmm0)
-  mov dword [rbp-0x4], edi      ; i = num
-  movss dword [rbp-0x18], xmm0  ; save start
-  movss dword [rbp-0x14], xmm1  ; save denum
-  movss xmm0, dword[rbp-0x18]   ; load start
-  movss dword [rbp-0x8], xmm0   ; result = start
-  movss xmm0, dword[rbp-0x18]   ; load start
-  movss dword [rbp-0xc], xmm0   ; current = start
+  movss xmm2, xmm0
+  movss xmm3, xmm0
 startlp:
-  mov eax, dword [rbp-0x4]      ; eax = i
-  cmp eax, 0                    ; if i <= 0:
+  cmp edi, 0                    ; if i <= 0:
   jle endlp                     ;     jump to end of loop
-  movss xmm0, dword[rbp-0xc]    ; xmm0 = current
-  movss xmm1, dword[rbp-0x14]   ; xmm1 = denum
-  mulss xmm0, xmm1              ; current = current * denum
-  movss dword [rbp-0xc], xmm0   ; save current
-  movss xmm0, dword [rbp-0x8]   ; xmm0 = result
-  movss xmm1, dword [rbp-0xc]   ; xmm1 = current
-  addss xmm0, xmm1              ; result = result + current
-  movss dword [rbp-0x8], xmm0   ; save result
-  mov eax, dword [rbp-0x4]      ; eax = i
-  sub eax, 1                    ; i -= 1
-  mov dword [rbp-0x4], eax      ; save i
+  mulss xmm3, xmm1
+  addss xmm2, xmm3
+  sub edi, 1                    ; i -= 1
   jmp startlp                   ; jump to start of the loop
 endlp:
-  ; return the state of stack and return the func, result in xmm0
-  movss xmm0, dword [rbp-0x8]   ; res = result
+  movss xmm0, xmm2
   pop rbp
   ret
