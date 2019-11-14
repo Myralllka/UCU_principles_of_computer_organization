@@ -52,6 +52,27 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+volatile int clock_state = 1;
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance != TIM1) { return;}
+
+	if (clock_state == 1) {
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_4);
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+		clock_state = 0;
+	}
+	else{
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+		HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+		clock_state = 1;
+	}
+}
+
 volatile int button_is_pressed = 0;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
@@ -109,16 +130,18 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM1_Init();
-  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 //  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
 //  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 //  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
 //  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+
+//  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+//  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+//  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+//  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIM_Base_Start_IT(&htim1);
   /* USER CODE END 2 */
 
@@ -131,9 +154,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-  }
-  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	 HAL_GPIO_TogglePin(TIM_CHANNEL_1, TIM_CHANNEL_1);
   }
   /* USER CODE END 3 */
 }
