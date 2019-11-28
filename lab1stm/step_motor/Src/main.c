@@ -143,14 +143,25 @@ int main(void)
 //  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 //  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIM_Base_Start_IT(&htim1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  uint8_t b = 0;
   while (1)
   {
     /* USER CODE END WHILE */
+	  if (b == 0){
+		  TIM1->CCR1 = 500;
+		  TIM1->CCR2 = 0;
+		  b = 1;
+	  } else {
+		  TIM1->CCR1 = 0;
+		  TIM1->CCR2 = 500;
+		  b = 0;
+	  }
 
     /* USER CODE BEGIN 3 */
 
