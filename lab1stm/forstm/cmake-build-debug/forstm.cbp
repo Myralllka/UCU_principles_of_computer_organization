@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="forstm"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="forstm.elf">
+				<Option output="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/forstm.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__weak=__attribute__((weak))"/>
+					<Add option="-D__packed=__attribute__((__packed__))"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F303xC"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Inc"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Device/ST/STM32F3xx/Include"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 forstm.elf"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="forstm.elf/fast">
+				<Option output="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/forstm.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__weak=__attribute__((weak))"/>
+					<Add option="-D__packed=__attribute__((__packed__))"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F303xC"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Inc"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Device/ST/STM32F3xx/Include"/>
+					<Add directory="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 forstm.elf/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/myralllka/Documents/PoCO/lab1stm/forstm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/arm_common_tables.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/arm_const_structs.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/arm_math.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/cmsis_armcc_V6.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cmFunc.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cmInstr.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_cmSimd.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/STM32F303VCTx_FLASH.ld">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/Backup/gpio.c.bak">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/Backup/main.c.bak">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/Backup/stm32f3xx_hal_msp.c.bak">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/Backup/stm32f3xx_it.c.bak">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/Backup/syscalls.c.bak">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/Backup/system_stm32f3xx.c.bak">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/gpio.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/main.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/stm32f3xx_hal_msp.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/stm32f3xx_it.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/syscalls.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/Src/system_stm32f3xx.c">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/startup/startup_stm32f303xc.s">
+			<Option target="forstm.elf"/>
+		</Unit>
+		<Unit filename="/home/myralllka/Documents/PoCO/lab1stm/forstm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
