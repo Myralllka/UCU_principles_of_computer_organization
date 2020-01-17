@@ -3,6 +3,7 @@
 int first_three_equal_to_second_three(unsigned int number) {
     unsigned int sum_first_part = 0;
     unsigned int sum_second_part = 0;
+
     if (number_of_digits(number) < 6) {
         return 0;
     }
