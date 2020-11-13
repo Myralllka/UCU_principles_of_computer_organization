@@ -1,7 +1,0 @@
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/test.dir
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/test_check.dir
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/c_string.dir
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/main.dir
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/myralllka/Documents/PoCO/lab2/cmake-build-debug/CMakeFiles/comp_eff.dir
